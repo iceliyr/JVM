@@ -1,0 +1,60 @@
+
+management:
+  endpoint:
+    metrics:
+      enabled: true #支持metrics
+    prometheus:
+      enabled: true #支持Prometheus
+  metrics:
+    export:
+      prometheus:
+        enabled: true
+    tags:
+      application: jvm-test #实例名采集
+  endpoints:
+    web:
+      exposure:
+        include: '*' #开放所有端口
+
+#设置应用名
+spring:
+  application:
+    name: jvm-service
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/jvm_test?serverTimeZone=UTC&useUnicode=true&characterEncoding=UTF-8
+    username: root
+    password: 123456
+#    url: jdbc:mysql://rm-cn-zpr3eymps0008cso.rwlb.rds.aliyuncs.com:3306/jvm?serverTimeZone=UTC&useUnicode=true&characterEncoding=UTF-8
+#    url: jdbc:mysql://rm-cn-zpr3eymps0008c.rwlb.rds.aliyuncs.com:3306/jvm?serverTimeZone=UTC&useUnicode=true&characterEncoding=UTF-8
+#    username: jvm
+#    password: itheima123456@
+  rabbitmq:
+    host: localhost # rabbitMQ的ip地址
+    port: 5672 # 端口
+    username: guest
+    password: guest
+    virtual-host: /
+
+arthas:
+  #tunnel地址，目前是部署在同一台服务器，正式环境需要拆分
+  tunnel-server: ws://localhost:7777/ws
+  #tunnel显示的应用名称，直接使用应用名
+  app-name: ${spring.application.name}
+  #arthas http访问的端口和远程连接的端口
+  http-port: 8888
+  telnet-port: 9999
+
+server:
+  port: 8881
+  tomcat:
+    threads:
+      min-spare: 50
+      max: 500
+
+
+mybatis:
+  mapper-locations: classpath:mapper/*xml
+  type-aliases-package: com.itheima.jvmoptimize.practice.demo.pojo
+
+

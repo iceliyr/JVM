@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="jvm" />
+        <module name="jvm-optimize (1)" />
+        <module name="jvm-optimize (2)" />
+        <module name="test" />
+        <module name="jvm-optimize" />
+        <module name="jvm-optimize (3)" />
+        <module name="day04" />
+        <module name="jvm-optimize (4)" />
+        <module name="day03" />
+        <module name="day02" />
+        <module name="btrace" />
+        <module name="springboot-classfile" />
+        <module name="jdk6-demo (1)" />
+        <module name="jdk6-demo" />
+        <module name="test (1)" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel target="8" />
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="jvm-optimize" options="-parameters" />
+      <module name="jvm-optimize (1)" options="-parameters" />
+      <module name="jvm-optimize (2)" options="-parameters" />
+      <module name="jvm-optimize (3)" options="-parameters" />
+      <module name="jvm-optimize (4)" options="-parameters" />
+      <module name="springboot-classfile" options="-parameters" />
+    </option>
+  </component>
+</project>

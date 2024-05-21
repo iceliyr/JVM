@@ -1,0 +1,1 @@
+java -jar -Djava.rmi.server.hostname=112.126.28.66 -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=9122 -Dcom.sun.management.jmxremote.ssl=false -Dcom.sun.management.jmxremote.authenticate=false jvm-service.jar

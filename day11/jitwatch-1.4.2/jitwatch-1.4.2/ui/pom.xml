@@ -1,0 +1,207 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>com.chrisnewland</groupId>
+		<artifactId>jitwatch-parent</artifactId>
+		<version>1.4.2</version>
+	</parent>
+
+	<artifactId>jitwatch-ui</artifactId>
+
+	<name>JITWatch UI</name>
+
+	<properties>
+		<openjfx.version>17.0.0.1</openjfx.version>
+
+		<!--set on command line with -Djavafx.platform={linux|win|mac} -->
+	</properties>
+
+	<profiles>
+		<profile>
+			<id>with_built_in_javafx</id>
+			<activation>
+				<jdk>[1.8,10]</jdk>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-shade-plugin</artifactId>
+						<version>3.2.0</version>
+						<executions>
+							<execution>
+								<phase>package</phase>
+								<goals>
+									<goal>shade</goal>
+								</goals>
+								<configuration>
+									<shadedArtifactAttached>true</shadedArtifactAttached>
+									<shadedClassifierName>project-classifier</shadedClassifierName>
+									<outputFile>target/jitwatch-ui-${project.version}-shaded.jar</outputFile>
+									<transformers>
+										<transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+											<mainClass>${main.class}</mainClass>
+											<manifestEntries>
+												<Add-Exports>jdk.jdeps/com.sun.tools.javap</Add-Exports>
+											</manifestEntries>
+										</transformer>
+									</transformers>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+
+		<profile>
+			<id>with_openjfx_from_maven_central</id>
+			<activation>
+				<jdk>[11,)</jdk>
+			</activation>
+			<dependencies>
+				<!-- https://mvnrepository.com/artifact/org.openjfx/javafx -->
+				<dependency>
+					<groupId>org.openjfx</groupId>
+					<artifactId>javafx-controls</artifactId>
+					<version>${openjfx.version}</version>
+				</dependency>
+				<dependency>
+					<groupId>org.openjfx</groupId>
+					<artifactId>javafx-web</artifactId>
+					<version>${openjfx.version}</version>
+				</dependency>
+				<dependency>
+					<groupId>org.openjfx</groupId>
+					<artifactId>javafx-swing</artifactId>
+					<version>${openjfx.version}</version>
+				</dependency>
+			</dependencies>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-shade-plugin</artifactId>
+						<version>3.2.0</version>
+						<executions>
+							<execution>
+								<phase>package</phase>
+								<goals>
+									<goal>shade</goal>
+								</goals>
+								<configuration>
+									<shadedArtifactAttached>true</shadedArtifactAttached>
+									<shadedClassifierName>project-classifier</shadedClassifierName>
+                                                                        <outputFile>target/jitwatch-ui-${project.version}-shaded-${javafx.platform}.jar</outputFile>
+									<transformers>
+										<transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+											<mainClass>${main.class}</mainClass>
+											<manifestEntries>
+												<Add-Exports>jdk.jdeps/com.sun.tools.javap</Add-Exports>
+											</manifestEntries>
+										</transformer>
+									</transformers>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+	<!-- ======== Dependencies ======== -->
+	<dependencyManagement>
+		<dependencies>
+
+			<!-- ======== SLF4J Logging Framework ======== -->
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>slf4j-api</artifactId>
+				<version>${slf4j.version}</version>
+			</dependency>
+
+			<!-- ======== Logback bindings for SLF4J ======== -->
+			<dependency>
+				<groupId>ch.qos.logback</groupId>
+				<artifactId>logback-classic</artifactId>
+				<version>${logback.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>ch.qos.logback</groupId>
+				<artifactId>logback-core</artifactId>
+				<version>${logback.version}</version>
+			</dependency>
+
+			<!-- ======== JUnit 4 ======== -->
+			<dependency>
+				<groupId>junit</groupId>
+				<artifactId>junit</artifactId>
+				<version>${junit.version}</version>
+				<scope>test</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<dependencies>
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>jitwatch-core</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-core</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>attach-sources</id>
+						<goals>
+							<goal>jar-no-fork</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>exec-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>default-cli</id>
+						<goals>
+							<goal>java</goal>
+						</goals>
+						<configuration>
+							<skip>false</skip>
+							<mainClass>${main.class}</mainClass>
+							<cleanupDaemonThreads>false</cleanupDaemonThreads>
+							<classpathScope>compile</classpathScope>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+</project>

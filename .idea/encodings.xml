@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/day01/springboot-classfile/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/day05/jvm-optimize/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/day06/jvm-optimize/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/day07/jvm-optimize/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/day08/jvm-optimize-final/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/day08/jvm-optimize/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/day08/test/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/day08/test/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/day09/test/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/day09/test/src/main/resources" charset="UTF-8" />
+  </component>
+</project>

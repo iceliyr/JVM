@@ -1,0 +1,36 @@
+.root {
+  -fx-font: 12px Arial;
+}
+
+.mnemonic-underline {
+  -fx-stroke: -fx-text-base-color;
+}
+
+.eliminated-allocation .text {
+  -fx-strikethrough: true;
+}
+
+.tooltip .text {
+  -fx-strikethrough: false;
+  -fx-font-family: monospace;
+  -fx-font-size: 12px;
+}
+
+Button {
+  -fx-font: 12px Arial;
+  -fx-base: #eeeeff;
+  -fx-padding: 3 4 4 3;
+}
+
+.chart-title {
+  -fx-text-fill: blue;
+  -fx-font-size: 16px;
+}
+
+.readonly-label {
+-fx-border-color: black;
+-fx-border-width: 1px;
+text-align: left;
+-fx-background-color: white;
+-fx-padding:4px;
+}

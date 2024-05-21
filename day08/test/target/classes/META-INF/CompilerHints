@@ -1,0 +1,10 @@
+dontinline,*.*_all_jmhStub
+dontinline,*.*_avgt_jmhStub
+dontinline,*.*_sample_jmhStub
+dontinline,*.*_ss_jmhStub
+dontinline,*.*_thrpt_jmhStub
+inline,org/sample/DateBench.date
+inline,org/sample/DateBench.dateThreadLocal
+inline,org/sample/DateBench.localDateTime
+inline,org/sample/DateBench.localDateTimeNotSave
+inline,org/sample/DateBench.setUp

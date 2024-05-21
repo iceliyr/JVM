@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/day01/jvm/pom.xml" />
+        <option value="$PROJECT_DIR$/day01/springboot-classfile/pom.xml" />
+        <option value="$PROJECT_DIR$/day02/day02/pom.xml" />
+        <option value="$PROJECT_DIR$/day03/day03/pom.xml" />
+        <option value="$PROJECT_DIR$/day04/day04/pom.xml" />
+        <option value="$PROJECT_DIR$/day05/jdk6-demo/pom.xml" />
+        <option value="$PROJECT_DIR$/day05/jvm-optimize/pom.xml" />
+        <option value="$PROJECT_DIR$/day06/btrace/pom.xml" />
+        <option value="$PROJECT_DIR$/day06/jdk6-demo/pom.xml" />
+        <option value="$PROJECT_DIR$/day06/jvm-optimize/pom.xml" />
+        <option value="$PROJECT_DIR$/day07/jvm-optimize/pom.xml" />
+        <option value="$PROJECT_DIR$/day08/test/pom.xml" />
+        <option value="$PROJECT_DIR$/day08/jvm-optimize/pom.xml" />
+        <option value="$PROJECT_DIR$/day08/jvm-optimize-final/pom.xml" />
+        <option value="$PROJECT_DIR$/day09/test/pom.xml" />
+        <option value="$PROJECT_DIR$/day09/spring-boot-3-native-demo/spring-boot-3-native-demo/pom.xml" />
+      </list>
+    </option>
+    <option name="workspaceImportForciblyTurnedOn" value="true" />
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+</project>

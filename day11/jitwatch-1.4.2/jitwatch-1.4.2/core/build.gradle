@@ -1,0 +1,28 @@
+plugins {
+    id 'java'
+    id 'maven-publish'
+}
+
+dependencies {
+    compile 'org.slf4j:slf4j-api:1.7.30', 'ch.qos.logback:logback-classic:1.2.3', 'ch.qos.logback:logback-core:1.2.3'
+    testCompile 'junit:junit:4.13.1'
+}
+
+publishing {
+    publications {
+        bintray(MavenPublication) {
+            from components.java
+            groupId project.group
+            artifactId project.name
+            version project.version
+
+            artifact sourceJar {
+                classifier 'sources'
+            }
+
+            artifact javadocJar {
+                classifier 'javadoc'
+            }
+        }
+    }
+}
